@@ -8,7 +8,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://yct-napes-management.onrender.com', '127.0.0.1', 'localhost']
 
 
 INSTALLED_APPS = [
@@ -29,6 +29,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'corsheaders.middleware.CorsMiddleware',  
 
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -107,7 +109,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# Optional: if you're using WhiteNoise
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
