@@ -55,3 +55,6 @@ urlpatterns = [
 
 
 
+admin.site.site_title = "Yct-NAPES management system"
+admin.site.site_header = "Yct-NAPES administration"
+admin.site.index_title = "Site administration"
